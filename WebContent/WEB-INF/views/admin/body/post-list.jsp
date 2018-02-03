@@ -1,6 +1,6 @@
-
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <h1 class="page-header">
-	 Post List <small>admin</small>
+	Post List <small>admin</small>
 </h1>
 
 <!-- Post View Table -->
@@ -15,14 +15,22 @@
 		</tr>
 	</thead>
 	<tbody>
-		<tr>
-			<td>1</td>
-			<td>Hello World</td>
-			<td>Hello ADS</td>
-			<td><img src="#" height="10" width="100" alt="pic" /></td>
-			<td>1/2/1023</td>
-			<td><a href="#">edit</</a></td>
-			<td><a href="#">Delete</</a></td>
-		</tr>
+		<%
+			int count = 1;
+		%>
+		<c:forEach items="${list}" var="post">
+			<tr>
+				<td><%=count%></td>
+				<%
+					count++;
+				%>
+				<td>${post.title}</td>
+				<td>${post.description}</td>
+				<td>${post.date}</td>
+				<td><a href="post-list/e/${post.id}">edit</a></td>
+				<td><a href="post-list/d/${post.id}">delete</a></td>
+			</tr>
+		</c:forEach>
+
 	</tbody>
 </table>

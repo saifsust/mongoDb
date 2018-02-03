@@ -32,8 +32,11 @@ public class Main {
 			 * 
 			 * System.out.println("End");
 			 */
+			
+			System.out.println(StringProcessor.getCurrentTime());
+			
 
-			System.out.println(StringProcessor.descriptionProcess("djgadg|liton|jdajdjagd<saiful>"));
+			//System.out.println(StringProcessor.descriptionProcess("djgadg|liton|jdajdjagd<saiful>"));
 
 		} catch (Exception ex) {
 			System.out.println(ex.getMessage());

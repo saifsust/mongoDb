@@ -18,7 +18,7 @@
 				<div class="col-lg-12">
 
 					<jsp:include page="body/post-list.jsp" />
-
+                  
 
 				</div>
 			</div>

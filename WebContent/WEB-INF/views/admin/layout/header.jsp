@@ -15,7 +15,6 @@
 
 <link href='<c:url value="/admin/css/bootstrap.min.css" />'
 	rel="stylesheet">
-<
 
 <link href='<c:url  value="/admin/css/sb-admin.css" />' rel="stylesheet" />
 
@@ -33,3 +32,5 @@
 
 </head>
 <body>
+
+
