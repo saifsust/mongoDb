@@ -5,7 +5,7 @@
 <!-- Upload post -->
 <form method="post" modelAttribute="post"  action="uploadPost" enctype="multipart/form-data"  >
 
-	<input type="hidden" name="authorId" value="123523523" required="required" />
+	<input type="hidden" name="authorId" value="5a67193660704e7636809f2b" required="required" />
 	<div class="form-group">
 		<label>Title</label> <input type="text" name="title"
 			class="form-control"  required="required" />

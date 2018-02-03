@@ -2,7 +2,10 @@ package org.javawebdevelopment.controller;
 
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.javawebdevelopement.repositories.PostRepository;
+import org.javawebdevelopment.algorithms.DbModelProcessor;
 import org.javawebdevelopment.models.Post;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.core.MongoOperations;
@@ -24,14 +27,21 @@ public class PostListController {
 	private MongoOperations mongoOperations;
 
 	@RequestMapping(value = "/post-list", method = RequestMethod.GET)
-	public ModelAndView showPostList() {
-
-		System.out.println("Post List Viewer");
+	public ModelAndView showPostList(HttpServletRequest httpServletRequest) {
+         
+		System.out.println("Post List Viewer "+httpServletRequest);
 
 		ModelAndView model = new ModelAndView("admin/post-list");
-		List<Post> postList = postRepository.findAll();
-		//System.out.println(postList);
-		model.addObject("list", postList);
+		// List<Post> postList = postRepository.findAll();
+		try {
+			List<Post> postList = DbModelProcessor.getAuthorAllPost("123523523", postRepository);
+			model.addObject("list", postList);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		// System.out.println(postList);
+
 		return model;
 	}
 
@@ -43,7 +53,7 @@ public class PostListController {
 			System.out.println(action);
 			Post post = mongoOperations.findOne(query, Post.class);
 			System.out.println(post.getLinks()[0]);
-			
+
 			break;
 		case "d":
 			// System.out.println(action);
