@@ -9,6 +9,8 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface PostRepository extends MongoRepository<Post, String> {
 	
-	List<Post> getAuthorAllPostByAuthorId(String authorId);
+	public List<Post> getAuthorAllPostByAuthorId(String authorId);
+	public void delete(String id);
+	public Post getPostById(String id);
 
 }
