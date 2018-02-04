@@ -1,7 +1,7 @@
 package org.javawebdevelopment.controller;
 
 import org.apache.log4j.Logger;
-import org.javawebdevelopement.repositories.UserRepository;
+import org.javawebdevelopment.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpRequest;
 import org.springframework.stereotype.Controller;

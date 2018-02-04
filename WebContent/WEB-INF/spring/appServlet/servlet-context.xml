@@ -34,7 +34,7 @@
 		<constructor-arg name="databaseName" value="socialmedia"></constructor-arg>
 	</bean>
 
-	<mongo:repositories base-package="org.javawebdevelopement.repositories"></mongo:repositories>
+	<mongo:repositories base-package="org.javawebdevelopment.repositories"></mongo:repositories>
 
 
 

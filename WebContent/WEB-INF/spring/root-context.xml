@@ -1,7 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:sec="http://www.springframework.org/schema/security"
+	xsi:schemaLocation="http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security-4.2.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
 
+	<sec:authentication-manager>
+		<sec:authentication-provider>
+			<sec:user-service>
+				<sec:user authorities="admin" name="jemi" password="root" />
+				<sec:user authorities="admin" name="liton" password="root" />
+			</sec:user-service>
+		</sec:authentication-provider>
+	</sec:authentication-manager>
+
+
+	<sec:http use-expressions="true">
+		<sec:form-login />
+		<sec:intercept-url pattern="/follower" access="permitAll" />
+		<sec:intercept-url pattern="/post" access="permitAll" />
+		<sec:intercept-url pattern="/post-list" access="permitAll" />
+		<sec:intercept-url pattern="/" access="permitAll" />
+		<sec:intercept-url pattern="/**" access="denyAll" />
+	</sec:http>
 </beans>

@@ -19,7 +19,7 @@
 	</div>
 	<div class="form-group">
 		<label>Upload File</label> <input type="file" name="fileLinks"
-			class="btn btn-primary" multiple="multiple"  />
+			class="btn btn-primary" multiple="multiple"  value="${post.links}" />
 	</div>
 	<input type="submit" name="sumit" class="btn btn-primary" />
 </form>

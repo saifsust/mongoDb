@@ -28,5 +28,5 @@
 		<constructor-arg name="databaseName" value="liton"></constructor-arg>
 	</bean>
 
-	<mongo:repositories base-package="org.javawebdevelopement.repositories"></mongo:repositories>
+	<mongo:repositories base-package="org.javawebdevelopment.repositories"></mongo:repositories>
 </beans>

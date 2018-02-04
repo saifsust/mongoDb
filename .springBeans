@@ -10,6 +10,7 @@
 		<config>WebContent/WEB-INF/spring/root-context.xml</config>
 		<config>WebContent/WEB-INF/spring/appServlet/servlet-context.xml</config>
 		<config>src/org/javawevdevelopment/beanconfig/mongo-config.xml</config>
+		<config>src/org/javawevdevelopment/beanconfig/security-context.xml</config>
 	</configs>
 	<autoconfigs>
 	</autoconfigs>
