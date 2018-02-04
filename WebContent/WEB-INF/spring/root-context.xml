@@ -17,10 +17,15 @@
 
 	<sec:http use-expressions="true">
 		<sec:form-login />
-		<sec:intercept-url pattern="/follower" access="permitAll" />
-		<sec:intercept-url pattern="/post" access="permitAll" />
-		<sec:intercept-url pattern="/post-list" access="permitAll" />
-		<sec:intercept-url pattern="/" access="permitAll" />
+		<sec:intercept-url pattern="/follower" access="isAuthenticated()" />
+		<sec:intercept-url pattern="/post" access="isAuthenticated()" />
+		<sec:intercept-url pattern="/appointment" access="isAuthenticated()" />
+		<sec:intercept-url pattern="/post-list" access="isAuthenticated()" />
+		<sec:intercept-url pattern="/chat" access="isAuthenticated()" />
+		<sec:intercept-url pattern="/expected-appointment"
+			access="isAuthenticated()" />
+		<sec:intercept-url pattern="/index" access="isAuthenticated()" />
+		<sec:intercept-url pattern="/" access="isAuthenticated()" />
 		<sec:intercept-url pattern="/**" access="denyAll" />
 	</sec:http>
 </beans>
