@@ -13,22 +13,22 @@
 <title>Student Teachers Social Media</title>
 <!-- Bootstrap Core CSS -->
 
-<link href='<c:url value="/admin/css/bootstrap.min.css" />'
+<link href='<c:url value="res/admin/css/bootstrap.min.css" />'
 	rel="stylesheet">
 
-<link href='<c:url  value="/admin/css/sb-admin.css" />' rel="stylesheet" />
+<link href='<c:url  value="res/admin/css/sb-admin.css" />' rel="stylesheet" />
 
 <!-- Custom Fonts -->
 
 <link
-	href='<c:url value="/admin/font-awesome/css/font-awesome.min.css" />'
+	href='<c:url value="res/admin/font-awesome/css/font-awesome.min.css" />'
 	rel="stylesheet">
 
 <script type="text/javascript"
-	src="<c:url value="/admin/js/jquery.js"  />"></script>
+	src="<c:url value="res/admin/js/jquery.js"  />"></script>
 <!-- Bootstrap Core JavaScript -->
 <script type="text/javascript"
-	src="<c:url value="/admin/js/bootstrap.min.js" />"></script>
+	src="<c:url value="res/admin/js/bootstrap.min.js" />"></script>
 
 </head>
 <body>

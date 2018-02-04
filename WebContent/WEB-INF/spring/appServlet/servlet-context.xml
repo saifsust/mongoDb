@@ -23,7 +23,7 @@
 		<property name="suffix" value=".jsp"></property>
 	</bean>
 	<!-- resource config -->
-	<mvc:resources mapping="/**" location="/resourecs/">
+	<mvc:resources mapping="/res/**" location="/resourecs/">
 	</mvc:resources>
 	<!--mongodb connection config -->
 	<mongo:mongo id="mongo" host="localhost" port="27017" />

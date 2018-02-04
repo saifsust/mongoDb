@@ -26,6 +26,7 @@
 			access="isAuthenticated()" />
 		<sec:intercept-url pattern="/index" access="isAuthenticated()" />
 		<sec:intercept-url pattern="/" access="isAuthenticated()" />
+		<sec:intercept-url pattern="/res/**" access="permitAll()" />
 		<sec:intercept-url pattern="/**" access="denyAll" />
 	</sec:http>
 </beans>
