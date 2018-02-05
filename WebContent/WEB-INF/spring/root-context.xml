@@ -16,17 +16,22 @@
 
 
 	<sec:http use-expressions="true">
-		<sec:form-login />
+		<sec:form-login login-page="/login" />
 		<sec:intercept-url pattern="/follower" access="isAuthenticated()" />
 		<sec:intercept-url pattern="/post" access="isAuthenticated()" />
 		<sec:intercept-url pattern="/appointment" access="isAuthenticated()" />
 		<sec:intercept-url pattern="/post-list" access="isAuthenticated()" />
+		<sec:intercept-url pattern="/post-list/e/*" access="isAuthenticated()" />
+		<sec:intercept-url pattern="/post-list/d/*" access="isAuthenticated()" />
 		<sec:intercept-url pattern="/chat" access="isAuthenticated()" />
 		<sec:intercept-url pattern="/expected-appointment"
 			access="isAuthenticated()" />
 		<sec:intercept-url pattern="/index" access="isAuthenticated()" />
+		<sec:intercept-url pattern="/login" access="permitAll" />
+		<sec:intercept-url pattern="/submition" access="permitAll" />
 		<sec:intercept-url pattern="/" access="isAuthenticated()" />
-		<sec:intercept-url pattern="/res/**" access="permitAll()" />
+		<sec:intercept-url pattern="/res/**" access="permitAll" />
 		<sec:intercept-url pattern="/**" access="denyAll" />
+		<!-- <sec:csrf disabled="false" /> -->		
 	</sec:http>
 </beans>
