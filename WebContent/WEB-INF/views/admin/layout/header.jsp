@@ -31,6 +31,11 @@
 	src="<c:url value="res/admin/js/bootstrap.min.js" />"></script>
 
 </head>
-<body>
+<body  >
+
+<!-- Geo Location Tracking Using javascript -->
+
+
+
 
 

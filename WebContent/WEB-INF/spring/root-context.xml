@@ -27,6 +27,7 @@
 		<sec:intercept-url pattern="/expected-appointment"
 			access="isAuthenticated()" />
 		<sec:intercept-url pattern="/index" access="isAuthenticated()" />
+		<sec:intercept-url pattern="/google-map" access="isAuthenticated()" />
 		<sec:intercept-url pattern="/login" access="permitAll" />
 		<sec:intercept-url pattern="/submition" access="permitAll" />
 		<sec:intercept-url pattern="/" access="isAuthenticated()" />
