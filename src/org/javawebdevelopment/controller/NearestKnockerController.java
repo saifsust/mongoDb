@@ -17,7 +17,7 @@ public class NearestKnockerController {
 	@Autowired
 	private UserRepository userRepository;
 
-	@RequestMapping(value = "/", method = RequestMethod.GET)
+	@RequestMapping(value = "/admin", method = RequestMethod.GET)
 	public String routeHome() {
 
 		if (log.isDebugEnabled()) {
@@ -33,7 +33,7 @@ public class NearestKnockerController {
 		return direct();
 	}
 
-	@RequestMapping(value = "/index", method = RequestMethod.GET)
+	@RequestMapping(value = "/aindex", method = RequestMethod.GET)
 	public String redirectHome() {
 
 		System.out.println("index Request");

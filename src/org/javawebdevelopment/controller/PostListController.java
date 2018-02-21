@@ -52,10 +52,10 @@ public class PostListController {
 		switch (action) {
 		case "e":
 			System.out.println(action);
-			Post post = postRepository.getPostById(id);
-			System.out.println(postRepository.getPostById(id).getTitle());
-			System.out.println("return Controller " + post);
-			attr.addFlashAttribute("post", post);
+			//Post post = postRepository.getPostById(id);
+			//System.out.println(postRepository.getPostById(id).getTitle());
+			//System.out.println("return Controller " + post);
+			//attr.addFlashAttribute("post", post);
 			model = new ModelAndView(this.redirect("post"));
 			return model;
 		case "d":

@@ -17,7 +17,13 @@
 
 	<sec:http use-expressions="true">
 		<sec:form-login login-page="/login" />
+		<sec:intercept-url pattern="/sign-up" access="isAuthenticated()" />
+		<sec:intercept-url pattern="/sign-in" access="isAuthenticated()" />
+		<sec:intercept-url pattern="/verify" access="isAuthenticated()" />
+		<sec:intercept-url pattern="/pUpload*" access="isAuthenticated()" />
+		<sec:intercept-url pattern="/registration" access="isAuthenticated()" />
 		<sec:intercept-url pattern="/follower" access="isAuthenticated()" />
+		<sec:intercept-url pattern="/home" access="isAuthenticated()" />
 		<sec:intercept-url pattern="/post" access="isAuthenticated()" />
 		<sec:intercept-url pattern="/appointment" access="isAuthenticated()" />
 		<sec:intercept-url pattern="/post-list" access="isAuthenticated()" />
@@ -33,6 +39,6 @@
 		<sec:intercept-url pattern="/" access="isAuthenticated()" />
 		<sec:intercept-url pattern="/res/**" access="permitAll" />
 		<sec:intercept-url pattern="/**" access="denyAll" />
-		<!-- <sec:csrf disabled="false" /> -->		
+		<sec:csrf disabled="true" />
 	</sec:http>
 </beans>

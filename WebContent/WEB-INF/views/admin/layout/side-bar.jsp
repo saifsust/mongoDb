@@ -17,7 +17,5 @@
 			
 		<li><a href="chat"><i class="fa fa-fw fa-table"></i>Chat List</a></li>
 		<li><a href="google-map"><i class="fa fa-fw fa-table"></i>map</a></li>
-
-
 	</ul>
 </div>

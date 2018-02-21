@@ -7,6 +7,7 @@
 	<packaging>war</packaging>
 	<!-- Properties -->
 	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<java-version>1.8</java-version>
 		<spring.version>4.3.9.RELEASE</spring.version>
 		<mongo.version>1.10.1.RELEASE</mongo.version>

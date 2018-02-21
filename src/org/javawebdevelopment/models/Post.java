@@ -1,44 +1,58 @@
 package org.javawebdevelopment.models;
 
-import java.util.Arrays;
-
-import org.javawebdevelopment.algorithms.StringProcessor;
+import org.bson.types.ObjectId;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-@Document(collection="post")
+@Document(collection = "post")
 public class Post {
 
 	@Id
-	private String id;
+	private ObjectId id;
 	private String title;
 	private String description;
 	private String date;
-	private String[] links;
-	private String authorId;
+	private String link;
+	private ObjectId authorId;
 
 	public Post() {
-		super();
-		// TODO Auto-generated constructor stub
+
 	}
 
-	public Post(String id, String title, String description, String date, String[] links, String authorId) {
+
+
+	public Post(String title, String description, String date, String link, ObjectId authorId) {
 		super();
-		this.id = id;
-		this.title = StringProcessor.descriptionProcess(title);
-		this.description = StringProcessor.descriptionProcess(description);
+		this.title = title;
+		this.description = description;
 		this.date = date;
-		this.links = links;
+		this.link = link;
 		this.authorId = authorId;
 	}
 
-	public String getId() {
+
+
+	public String getLink() {
+		return link;
+	}
+
+	public void setLink(String link) {
+		this.link = link;
+	}
+
+
+
+	public ObjectId getId() {
 		return id;
 	}
 
-	public void setId(String id) {
+
+
+	public void setId(ObjectId id) {
 		this.id = id;
 	}
+
+
 
 	public String getTitle() {
 		return title;
@@ -64,26 +78,23 @@ public class Post {
 		this.date = date;
 	}
 
-	public String[] getLinks() {
-		return links;
-	}
 
-	public void setLinks(String[] links) {
-		this.links = links;
-	}
-
-	public String getAuthorId() {
+	public ObjectId getAuthorId() {
 		return authorId;
 	}
 
-	public void setAuthorId(String authorId) {
+
+
+	public void setAuthorId(ObjectId authorId) {
 		this.authorId = authorId;
 	}
 
+
+
 	@Override
 	public String toString() {
-		return "Post [id=" + id + ", title=" + title + ", description=" + description + ", date=" + date + ", links="
-				+ Arrays.toString(links) + ", authorId=" + authorId + "]";
+		return "Post [id=" + id + ", title=" + title + ", description=" + description + ", date=" + date + ", link="
+				+ link + ", authorId=" + authorId + "]";
 	}
 
 }

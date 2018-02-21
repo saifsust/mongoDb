@@ -2,8 +2,9 @@ package org.javawebdevelopment.main;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
+import org.javawebdevelopment.algorithms.EncryptionUtil;
 import org.javawebdevelopment.algorithms.StringProcessor;
-import org.javawebdevelopment.models.Users;
+import org.javawebdevelopment.models.User;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.GenericXmlApplicationContext;
 import org.springframework.data.mongodb.core.MongoOperations;
@@ -32,11 +33,13 @@ public class Main {
 			 * 
 			 * System.out.println("End");
 			 */
-			
-			System.out.println(StringProcessor.getCurrentTime());
-			
 
-			//System.out.println(StringProcessor.descriptionProcess("djgadg|liton|jdajdjagd<saiful>"));
+			// System.out.println(StringProcessor.getCurrentTime());
+
+			String encode = EncryptionUtil.encript("SAIFUL ISLAM");
+			System.out.println(encode);
+			System.out.println(EncryptionUtil.match("SAIFUL ISLA", encode));
+			// System.out.println(StringProcessor.descriptionProcess("djgadg|liton|jdajdjagd<saiful>"));
 
 		} catch (Exception ex) {
 			System.out.println(ex.getMessage());

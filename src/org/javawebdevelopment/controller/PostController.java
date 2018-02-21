@@ -53,9 +53,9 @@ public class PostController {
 			}
 			
 
-			post.setLinks(links);
-			post.setDate(StringProcessor.getCurrentTime());
-			postRepository.insert(post);
+		//	post.setLinks(links);
+		//	post.setDate(StringProcessor.getCurrentTime());
+			//postRepository.insert(post);
 			// System.out.println(post);
 		} catch (Exception ex) {
 			System.out.println(ex.getMessage());

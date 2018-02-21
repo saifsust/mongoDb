@@ -13,7 +13,7 @@ import org.springframework.web.multipart.MultipartFile;
 public class StringProcessor {
 
 	// ------ properties -----//
-	private static final String STORE_PATH = "STORE_HOUSE";
+	private static final String STORE_PATH = "H:\\stsWorkplace\\HibernateSpringForBeginner\\javawebdevelopment\\WebContent\\STORE_HOUSE\\";
 	private static String boldStart = "<b>";
 	private static String boldEnd = "</b>";
 	private static String linkStart = "<a href='";
@@ -58,27 +58,13 @@ public class StringProcessor {
 
 	public static String fileLinkProcessor(MultipartFile file, HttpServletRequest httpServletRequest)
 			throws IllegalStateException, IOException {
-		String storePath = httpServletRequest.getServletContext().getRealPath(STORE_PATH);
-		// String originalName = file.getOriginalFilename();
-		System.out.println(file.getContentType());
+		String storePath = STORE_PATH;
+		//System.out.println(file.getContentType());
 		byte[] fileByte = file.getBytes();
 		String realStorePath = storePath + File.separator + file;
-
 		File directory = new File(realStorePath);
-
-		if (!directory.exists()) {
-			//directory.mkdir();
-		}
-		// realStorePath = directory.getAbsolutePath() + File.separator +
-		// originalName;
-		System.out.println(System.getProperty("catalina.home"));
-		// file.transferTo(directory);
-		///File save = new File(directory.getAbsolutePath()+File.separator+file);
-		BufferedOutputStream stream = new BufferedOutputStream(new FileOutputStream(directory));
-		stream.write(fileByte);
-		stream.flush();
-		stream.close();
-
+		// System.out.println(System.getProperty("catalina.home"));
+		file.transferTo(directory);
 		return realStorePath;
 	}
 
