@@ -3,6 +3,9 @@ package org.javawebdevelopment.models;
 import org.bson.types.ObjectId;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
+import org.springframework.data.mongodb.core.mapping.Field;
+import org.springframework.format.annotation.DateTimeFormat;
+import org.springframework.format.annotation.DateTimeFormat.ISO;
 
 @Document(collection = "post")
 public class Post {
@@ -11,6 +14,8 @@ public class Post {
 	private ObjectId id;
 	private String title;
 	private String description;
+	@DateTimeFormat(iso = ISO.DATE_TIME)
+	@Field(value = "postDate")
 	private String date;
 	private String link;
 	private ObjectId authorId;
@@ -19,9 +24,7 @@ public class Post {
 
 	}
 
-
-
-	public Post(String title, String description, String date, String link, ObjectId authorId) {
+	public Post(String title, String description, String link, ObjectId authorId) {
 		super();
 		this.title = title;
 		this.description = description;
@@ -29,8 +32,6 @@ public class Post {
 		this.link = link;
 		this.authorId = authorId;
 	}
-
-
 
 	public String getLink() {
 		return link;
@@ -40,19 +41,13 @@ public class Post {
 		this.link = link;
 	}
 
-
-
 	public ObjectId getId() {
 		return id;
 	}
 
-
-
 	public void setId(ObjectId id) {
 		this.id = id;
 	}
-
-
 
 	public String getTitle() {
 		return title;
@@ -78,18 +73,13 @@ public class Post {
 		this.date = date;
 	}
 
-
 	public ObjectId getAuthorId() {
 		return authorId;
 	}
 
-
-
 	public void setAuthorId(ObjectId authorId) {
 		this.authorId = authorId;
 	}
-
-
 
 	@Override
 	public String toString() {

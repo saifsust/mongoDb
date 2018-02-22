@@ -10,10 +10,13 @@ import javax.servlet.http.HttpSession;
 import org.bson.types.ObjectId;
 import org.javawebdevelopment.algorithms.StringProcessor;
 import org.javawebdevelopment.models.Post;
+import org.javawebdevelopment.models.PostViewer;
 import org.javawebdevelopment.models.User;
 import org.javawebdevelopment.repositories.PostRepository;
 import org.javawebdevelopment.repositories.UserRepository;
+import org.javawebdevelopment.services.ServiceMaster;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.SpringProperties;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -27,7 +30,6 @@ public class HomeController {
 
 	/** Properties ***/
 	private ModelAndView model;
-	private List<Post> posts = new ArrayList<Post>();
 	/** Autowire properties ***/
 	@Autowired
 	private HttpServletRequest httpServletRequest;
@@ -41,22 +43,13 @@ public class HomeController {
 		model = new ModelAndView(this.direct());
 		HttpSession session = request.getSession();
 		User user = (User) session.getAttribute("user");
+		System.out.println(StringProcessor.getCurrentTime());
+		List<PostViewer> viewers = ServiceMaster.viewer(postRepository, userRepository);
 		// System.out.println("Home");
 		// System.out.println(session.getAttribute("user"));
-		posts.clear();
-		for (ObjectId id : user.getPosts()) {
-			if (id == null)
-				continue;
-			Post post = postRepository.getPostById(id);
-			posts.add(post);
-		}
-
-		model.addObject("name", user.getName());
-		model.addObject("occupation", user.getOccupation());
-		model.addObject("dept", user.getDept());
-		model.addObject("institute", user.getInstitute());
+		// System.out.println(viewers);
 		model.addObject("user", user);
-		model.addObject("posts", posts);
+		model.addObject("views", viewers);
 
 		return model;
 	}
@@ -72,6 +65,7 @@ public class HomeController {
 		try {
 			String link = StringProcessor.fileLinkProcessor(file, httpServletRequest);
 			post.setLink(link);
+			post.setDate(StringProcessor.getCurrentTime());
 			Post save = postRepository.insert(post);
 			ObjectId userId = save.getAuthorId();
 			ObjectId postId = save.getId();

@@ -1,10 +1,10 @@
 package org.javawebdevelopment.algorithms;
 
-import java.io.BufferedOutputStream;
 import java.io.File;
-import java.io.FileOutputStream;
 import java.io.IOException;
-import java.util.Calendar;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.util.Date;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -59,7 +59,7 @@ public class StringProcessor {
 	public static String fileLinkProcessor(MultipartFile file, HttpServletRequest httpServletRequest)
 			throws IllegalStateException, IOException {
 		String storePath = STORE_PATH;
-		//System.out.println(file.getContentType());
+		// System.out.println(file.getContentType());
 		byte[] fileByte = file.getBytes();
 		String realStorePath = storePath + File.separator + file;
 		File directory = new File(realStorePath);
@@ -71,8 +71,9 @@ public class StringProcessor {
 	/***** current taker ******/
 
 	public static String getCurrentTime() {
-		Calendar calender = Calendar.getInstance();
-		return calender.getTime().toString();
+		DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
+		LocalDateTime now = LocalDateTime.now();
+		return dtf.format(now);
 	}
 
 }

@@ -1,3 +1,4 @@
+
 <section>
 	<!-- Left Sidebar -->
 	<aside id="leftsidebar" class="sidebar">
@@ -8,10 +9,11 @@
 			</div>
 			<div class="info-container">
 				<div class="name" data-toggle="dropdown" aria-haspopup="true"
-					aria-expanded="false">${name}</div>
-				<div class="email">${occupation}</div>
-				<div class="email">${dept}</div>
-				<div class="email">${institute}</div>
+					aria-expanded="false">${user.name}</div>
+				<div class="email">${user.occupation}</div>
+				<div class="email">${user.dept}</div>
+				<div class="email">${user.session}</div>
+				<div class="email">${user.institute}</div>
 				<div class="btn-group user-helper-dropdown">
 					<i class="material-icons" data-toggle="dropdown"
 						aria-haspopup="true" aria-expanded="true">keyboard_arrow_down</i>
@@ -21,7 +23,10 @@
 						<li role="seperator" class="divider"></li>
 						<li><a href="javascript:void(0);"><i
 								class="material-icons">group</i>Followers</a></li>
-
+						<li><a href="javascript:void(0);"><i
+								class="material-icons">shopping_cart</i>Sales</a></li>
+						<li><a href="javascript:void(0);"><i
+								class="material-icons">favorite</i>Likes</a></li>
 						<li role="seperator" class="divider"></li>
 						<li><a href="javascript:void(0);"><i
 								class="material-icons">input</i>Sign Out</a></li>
@@ -37,8 +42,8 @@
 				<li class="active"><a href="index.html"> <i
 						class="material-icons">home</i> <span>Home</span>
 				</a></li>
-				<li><a href="javascript:void(0);" class="menu-toggle"> <i
-						class="material-icons">view_list</i> <span>Tables</span>
+				<li class="active"><a href="javascript:void(0);"
+					class="menu-toggle"> <i class="material-icons">view_list</i> <span>Tables</span>
 				</a>
 					<ul class="ml-menu">
 
@@ -57,9 +62,10 @@
 						class="material-icons">content_copy</i> <span>Sign In pages</span>
 				</a>
 					<ul class="ml-menu">
-						<li><a href="sign-in.html">Sign In</a></li>
-						<li><a href="sign-up.html">Sign Up</a></li>
-						<li><a href="forgot-password.html">Forgot Password</a></li>
+						<li><a href="pages/examples/sign-in.html">Sign In</a></li>
+						<li><a href="pages/examples/sign-up.html">Sign Up</a></li>
+						<li><a href="pages/examples/forgot-password.html">Forgot
+								Password</a></li>
 
 					</ul></li>
 				<li><a href="javascript:void(0);" class="menu-toggle"> <i

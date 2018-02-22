@@ -89,9 +89,10 @@
 				action="./pUpload?${_csrf.parameterName}=${_csrf.token}"
 				enctype="multipart/form-data">
 
-				 <!-- <input type="hidden" name="${_csrf.parameterName}"
-					value="${_csrf.token}" /> --> <input type="hidden" name="authorId"
-					value="${user.id}" required="required" />
+				<!-- <input type="hidden" name="${_csrf.parameterName}"
+					value="${_csrf.token}" /> -->
+				<input type="hidden" name="authorId" value="${user.id}"
+					required="required" />
 				<div class="form-group header">
 					<label style="text-align: center;">Upload Post</label>
 					<div class="form-line">
@@ -128,164 +129,178 @@
 
 		<!-- end posting content -->
 		<!-- Uploaded post -->
-		<div class="card">
-			<!--- new add class -->
-			<div class="header">
-				<div style="float: left;">
-					<a href="#"> <img class="media-object photo-profile"
-						src="http://0.gravatar.com/avatar/38d618563e55e6082adf4c8f8c13f3e4?s=40&d=mm&r=g"
-						width="40" height="40" alt="...">
-					</a>
-				</div>
-				<div>
-					<h2>
-						<a href="#" class="anchor-username">${name}</a> <small> <a
-							href="#" style="color: blue;">51 mins</a></small>
-					</h2>
-				</div>
-				<ul class="header-dropdown m-r--5">
-					<li class="dropdown"><a href="javascript:void(0);"
-						class="dropdown-toggle" data-toggle="dropdown" role="button"
-						aria-haspopup="true" aria-expanded="false"> <i
-							class="material-icons">more_vert</i>
-					</a>
-						<ul class="dropdown-menu pull-right">
-							<li><a href="jquery-datatable.html">Edit appointment
-									list</a></li>
-						</ul></li>
-				</ul>
-			</div>
-			
-			<div class="body">${name}</div>
-				
-			<div class="modal-footer ">
+		<c:forEach items="${views}" var="view">
+			<div class="card">
 
-				<div class="">
+				<!--- new add class -->
+				<div class="header">
 
-					<button class="waves-effect waves-light btn"
-						id="requestColorChange" style="float: left;">
-						Request for Appointment <span class="badge">10+</span>
-					</button>
 
-					<!--   start  for request list    -->
 
-					<div>
-						<button type="button" class="waves-effect waves-light btn bg-blue"
-							style="float: left; margin-left: 20px;" data-toggle="modal"
-							data-target="#smallModal">Request list</button>
+
+
+
+					<div style="float: left;">
+						<a href="#"> <img class="media-object photo-profile"
+							src="http://0.gravatar.com/avatar/38d618563e55e6082adf4c8f8c13f3e4?s=40&d=mm&r=g"
+							width="40" height="40" alt="...">
+						</a>
 					</div>
-					<div class="modal fade" id="smallModal" tabindex="-1" role="dialog">
-						<div class="modal-dialog modal-sm" role="document">
-							<div class="modal-content">
-								<div class="modal-header">
-									<h4 class="modal-title" id="smallModalLabel"
-										style="color: blue; float: left;">Request list</h4>
-								</div>
-								<div class="modal-body">
-									<ul class="list-group">
-										<li class="list-group-item">
-											<button type="button"
-												class="btn btn-default btn-block waves-effect"
-												data-toggle="tooltip" data-placement="right"
-												title="CSE , 2013-14">hafsa akther samia</button>
-										</li>
-										<li class="list-group-item">
-											<button type="button"
-												class="btn btn-default btn-block waves-effect"
-												data-toggle="tooltip" data-placement="right"
-												title="CSE , 2013-14">jeb un nesa jamal jemi</button>
-										</li>
-										<li class="list-group-item">
-											<button type="button"
-												class="btn btn-default btn-block waves-effect"
-												data-toggle="tooltip" data-placement="right"
-												title="CSE , 2013-14">Nahar e zobaida papry</button>
-										</li>
+					<div>
+						<h2>
+							<a href="#" class="anchor-username">${view.user.name}</a> <small>
+								<a href="#" style="color: blue;">${view.post.date}</a>
+							</small>
+						</h2>
+						<h5>${view.post.title}</h5>
+					</div>
+					<ul class="header-dropdown m-r--5">
+						<li class="dropdown"><a href="javascript:void(0);"
+							class="dropdown-toggle" data-toggle="dropdown" role="button"
+							aria-haspopup="true" aria-expanded="false"> <i
+								class="material-icons">more_vert</i>
+						</a>
+							<ul class="dropdown-menu pull-right">
+								<li><a href="jquery-datatable.html">Edit appointment
+										list</a></li>
+							</ul></li>
+					</ul>
+				</div>
 
-									</ul>
+				<div class="body">${view.post.description}</div>
 
+				<div class="modal-footer ">
+
+					<div class="">
+
+						<button class="waves-effect waves-light btn"
+							id="requestColorChange" style="float: left;">
+							Request for Appointment <span class="badge">10+</span>
+						</button>
+
+						<!--   start  for request list    -->
+
+						<div>
+							<button type="button"
+								class="waves-effect waves-light btn bg-blue"
+								style="float: left; margin-left: 20px;" data-toggle="modal"
+								data-target="#smallModal">Request list</button>
+						</div>
+						<div class="modal fade" id="smallModal" tabindex="-1"
+							role="dialog">
+							<div class="modal-dialog modal-sm" role="document">
+								<div class="modal-content">
+									<div class="modal-header">
+										<h4 class="modal-title" id="smallModalLabel"
+											style="color: blue; float: left;">Request list</h4>
+									</div>
+									<div class="modal-body">
+										<ul class="list-group">
+											<li class="list-group-item">
+												<button type="button"
+													class="btn btn-default btn-block waves-effect"
+													data-toggle="tooltip" data-placement="right"
+													title="CSE , 2013-14">hafsa akther samia</button>
+											</li>
+											<li class="list-group-item">
+												<button type="button"
+													class="btn btn-default btn-block waves-effect"
+													data-toggle="tooltip" data-placement="right"
+													title="CSE , 2013-14">jeb un nesa jamal jemi</button>
+											</li>
+											<li class="list-group-item">
+												<button type="button"
+													class="btn btn-default btn-block waves-effect"
+													data-toggle="tooltip" data-placement="right"
+													title="CSE , 2013-14">Nahar e zobaida papry</button>
+											</li>
+
+										</ul>
+
+									</div>
+									<div class="modal-footer">
+										<!-- <button type="button" class="btn btn-link waves-effect">SAVE CHANGES</button> -->
+										<button type="button"
+											class="btn btn-link waves-effect bg-grey"
+											data-dismiss="modal">CLOSE</button>
+									</div>
 								</div>
-								<div class="modal-footer">
-									<!-- <button type="button" class="btn btn-link waves-effect">SAVE CHANGES</button> -->
-									<button type="button" class="btn btn-link waves-effect bg-grey"
-										data-dismiss="modal">CLOSE</button>
+							</div>
+						</div>
+
+						<!--   start  for appointment  list  for student   -->
+						<div>
+							<button type="button"
+								class="waves-effect waves-light btn bg-green"
+								style="float: right" data-toggle="modal"
+								data-target="#defaultModal">Appointment list</button>
+						</div>
+						<div class="modal fade" id="defaultModal" tabindex="-1"
+							role="dialog">
+							<div class="modal-dialog" role="document">
+								<div class="modal-content">
+									<div class="modal-header">
+										<h4 class="modal-title" id="defaultModalLabel"
+											style="color: #4CAF50; text-align: center;">Appointment
+											list</h4>
+									</div>
+									<div class="modal-body">
+										<table class="table">
+											<thead>
+												<tr>
+													<th scope="row">#</th>
+													<td style="font-weight: bold;">Name</td>
+													<td style="font-weight: bold;">Department</td>
+													<td style="font-weight: bold;">Session</td>
+													<td style="font-weight: bold;">Appointment time</td>
+												</tr>
+											</thead>
+											<tbody>
+												<tr>
+													<th scope="row">1</th>
+													<td>jemi</td>
+													<td>cse</td>
+													<td>2013-14</td>
+													<td>12-01-2014</td>
+												</tr>
+												<tr>
+													<th scope="row">2</th>
+													<td>jemi</td>
+													<td>cse</td>
+													<td>2013-14</td>
+													<td>12-01-2014</td>
+												</tr>
+												<tr>
+													<th scope="row">3</th>
+													<td>jemi</td>
+													<td>cse</td>
+													<td>2013-14</td>
+													<td>12-01-2014</td>
+												</tr>
+
+											</tbody>
+										</table>
+									</div>
+									<div class="modal-footer">
+										<!--  <button type="button" class="btn btn-link waves-effect">SAVE CHANGES</button> -->
+										<button type="button"
+											class="btn btn-link waves-effect bg-grey"
+											data-dismiss="modal">CLOSE</button>
+									</div>
 								</div>
 							</div>
 						</div>
 					</div>
 
-					<!--   start  for appointment  list  for student   -->
-					<div>
-						<button type="button"
-							class="waves-effect waves-light btn bg-green"
-							style="float: right" data-toggle="modal"
-							data-target="#defaultModal">Appointment list</button>
-					</div>
-					<div class="modal fade" id="defaultModal" tabindex="-1"
-						role="dialog">
-						<div class="modal-dialog" role="document">
-							<div class="modal-content">
-								<div class="modal-header">
-									<h4 class="modal-title" id="defaultModalLabel"
-										style="color: #4CAF50; text-align: center;">Appointment
-										list</h4>
-								</div>
-								<div class="modal-body">
-									<table class="table">
-										<thead>
-											<tr>
-												<th scope="row">#</th>
-												<td style="font-weight: bold;">Name</td>
-												<td style="font-weight: bold;">Department</td>
-												<td style="font-weight: bold;">Session</td>
-												<td style="font-weight: bold;">Appointment time</td>
-											</tr>
-										</thead>
-										<tbody>
-											<tr>
-												<th scope="row">1</th>
-												<td>jemi</td>
-												<td>cse</td>
-												<td>2013-14</td>
-												<td>12-01-2014</td>
-											</tr>
-											<tr>
-												<th scope="row">2</th>
-												<td>jemi</td>
-												<td>cse</td>
-												<td>2013-14</td>
-												<td>12-01-2014</td>
-											</tr>
-											<tr>
-												<th scope="row">3</th>
-												<td>jemi</td>
-												<td>cse</td>
-												<td>2013-14</td>
-												<td>12-01-2014</td>
-											</tr>
+					<!--   end of appointment  list  for student -->
 
-										</tbody>
-									</table>
-								</div>
-								<div class="modal-footer">
-									<!--  <button type="button" class="btn btn-link waves-effect">SAVE CHANGES</button> -->
-									<button type="button" class="btn btn-link waves-effect bg-grey"
-										data-dismiss="modal">CLOSE</button>
-								</div>
-							</div>
-						</div>
-					</div>
 				</div>
 
-				<!--   end of appointment  list  for student -->
-
 			</div>
-			
-			
-			
-		</div>
+		</c:forEach>
 		<!--Uploaded post -->
 	</div>
+
 	</div>
 	<!-- posts --> <!-- end of middle content   --> <!-- start of right side  content   -->
 	<div style="float: right; width: 27%">
