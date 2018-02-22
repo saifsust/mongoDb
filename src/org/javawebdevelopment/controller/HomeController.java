@@ -74,6 +74,7 @@ public class HomeController {
 				user.setPosts(new ObjectId[0]);
 			user.setPost(postId);
 			userRepository.save(user);
+
 			// System.out.println(userId);
 
 		} catch (IllegalStateException e) {
@@ -82,6 +83,14 @@ public class HomeController {
 			System.out.println(e.getMessage());
 		}
 
+		return model;
+	}
+
+	@RequestMapping(value = "/location", method = RequestMethod.POST)
+	public ModelAndView LocationTracker(@RequestParam("longitude") String longitude,
+			@RequestParam("latitude") String latitude) {
+		System.out.println(longitude);
+		model = new ModelAndView(this.redirect());
 		return model;
 	}
 

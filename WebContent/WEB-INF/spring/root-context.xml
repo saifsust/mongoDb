@@ -21,6 +21,7 @@
 		<sec:intercept-url pattern="/sign-in" access="isAuthenticated()" />
 		<sec:intercept-url pattern="/verify" access="isAuthenticated()" />
 		<sec:intercept-url pattern="/pUpload*" access="isAuthenticated()" />
+			<sec:intercept-url pattern="/location" access="isAuthenticated()" />
 		<sec:intercept-url pattern="/registration" access="isAuthenticated()" />
 		<sec:intercept-url pattern="/follower" access="isAuthenticated()" />
 		<sec:intercept-url pattern="/home" access="isAuthenticated()" />

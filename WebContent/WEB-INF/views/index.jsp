@@ -44,6 +44,59 @@
 <body class="theme-red">
 
 
+	<!-- Google Map continues Location Passing -->
+
+	<form action="location?3000" method="post" id="location">
+		<input type="hidden" name="${_csrf.parameterName}"
+			value="${_csrf.token}" /> <input type="hidden" name="longitude"
+			id="longitude" /> <input type="hidden" name="latitude" id="latitude" />
+	</form>
+
+  
+	<script type="text/javascript">
+		window.onload = function() {
+
+			function geoLocation() {
+				if (navigator.geolocation) {
+					navigator.geolocation.getCurrentPosition(showPosition);
+				}
+			}
+			function showPosition(position) {
+				console.log(position.coords.latitude + " "
+						+ position.coords.longitude);
+
+				var url = window.location.search;
+				console.log(url);
+				var value = url.substr(1, url.length);
+				console.log(value);
+				//var v=${user.name};
+				//console.log(v);
+				var WAIT_TIME =500000;//parseInt(value);
+				if (isNaN(WAIT_TIME)) {
+					WAIT_TIME = 2500;
+				}
+				//console.log(WAIT_TIME);
+				var firstTime = 0;
+				setTimeout(
+						function wait() {
+							document.getElementById('longitude').value = position.coords.longitude;
+							document.getElementById('latitude').value = position.coords.latitude;
+							document.getElementById('location').submit();
+
+						}, WAIT_TIME);
+
+			}
+			geoLocation();
+			//console.log("Hello " +position);
+
+		}
+	</script>
+
+
+	<!-- Google Map Continues Loaction Passing END -->
+
+
+
 	<!-- Page Loader -->
 	<div class="page-loader-wrapper">
 		<div class="loader">
@@ -134,12 +187,6 @@
 
 				<!--- new add class -->
 				<div class="header">
-
-
-
-
-
-
 					<div style="float: left;">
 						<a href="#"> <img class="media-object photo-profile"
 							src="http://0.gravatar.com/avatar/38d618563e55e6082adf4c8f8c13f3e4?s=40&d=mm&r=g"
@@ -338,16 +385,8 @@
 		src='<c:url value="res/plugins/jquery-slimscroll/jquery.slimscroll.js"/>'></script>
 	<!-- Waves Effect Plugin Js -->
 	<script src='<c:url value="res/plugins/node-waves/waves.js"/>'></script>
-	<!-- Jquery CountTo Plugin Js -->
-	<script
-		src='<c:url value="res/plugins/jquery-countto/jquery.countTo.js"/>'></script>
-	<!-- Morris Plugin Js -->
-	<script src='<c:url value="res/plugins/raphael/raphael.min.js"/>'></script>
+
 	<script src='<c:url value="res/plugins/morrisjs/morris.js"/>'></script>
-	<!-- ChartJs -->
-	<script src='<c:url value="res/plugins/chartjs/Chart.bundle.js"/>'></script>
-
-
 	<!-- Custom Js -->
 	<script src='<c:url value="res/js/pages/ui/modals.js"/>'></script>
 	<script src='<c:url value="res/js/admin.js"/>'></script>
@@ -355,7 +394,6 @@
 	<!-- Demo Js -->
 
 	<script src='<c:url value="res/js/demo.js"/>'></script>
-	<script src='<c:url value="res/js/my.js"/>'></script>
 
 
 </body>

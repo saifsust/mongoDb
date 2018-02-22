@@ -13,7 +13,7 @@ import org.springframework.web.multipart.MultipartFile;
 public class StringProcessor {
 
 	// ------ properties -----//
-	private static final String STORE_PATH = "H:\\stsWorkplace\\HibernateSpringForBeginner\\javawebdevelopment\\WebContent\\STORE_HOUSE\\";
+	private static final String STORE_PATH = "H:\\stsWorkplace\\HibernateSpringForBeginner\\javawebdevelopment\\WebContent\\STORE_HOUSE";
 	private static String boldStart = "<b>";
 	private static String boldEnd = "</b>";
 	private static String linkStart = "<a href='";
