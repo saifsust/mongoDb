@@ -1,7 +1,6 @@
 package org.javawebdevelopment.controller;
 
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -16,12 +15,12 @@ import org.javawebdevelopment.repositories.PostRepository;
 import org.javawebdevelopment.repositories.UserRepository;
 import org.javawebdevelopment.services.ServiceMaster;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.core.SpringProperties;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -91,6 +90,14 @@ public class HomeController {
 			@RequestParam("latitude") String latitude) {
 		System.out.println(longitude);
 		model = new ModelAndView(this.redirect());
+		return model;
+	}
+
+	@RequestMapping(value = "/ajax", method = RequestMethod.GET)
+	public @ResponseBody ModelAndView getAppointmentList() {
+		System.out.println("ajax");
+		model = new ModelAndView(this.direct());
+		model.addObject("my", "HELLO");
 		return model;
 	}
 

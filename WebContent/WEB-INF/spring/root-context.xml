@@ -20,6 +20,7 @@
 		<sec:intercept-url pattern="/sign-up" access="isAuthenticated()" />
 		<sec:intercept-url pattern="/sign-in" access="isAuthenticated()" />
 		<sec:intercept-url pattern="/verify" access="isAuthenticated()" />
+			<sec:intercept-url pattern="/ajax" access="isAuthenticated()" />
 		<sec:intercept-url pattern="/pUpload*" access="isAuthenticated()" />
 			<sec:intercept-url pattern="/location" access="isAuthenticated()" />
 		<sec:intercept-url pattern="/registration" access="isAuthenticated()" />

@@ -20,6 +20,7 @@ public class User {
 	private String institute;
 	private String password;
 	private ObjectId[] posts;
+	
 
 	public User() {
 		super();

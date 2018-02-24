@@ -39,6 +39,8 @@
 <link href='<c:url value="res/css/themes/all-themes.css"/>'
 	rel="stylesheet" />
 
+<script src='<c:url value="res/plugins/jquery/jquery.js"/>'></script>
+<script src='<c:url value="res/plugins/jquery/jquery.min.js"/>'></script>
 </head>
 
 <body class="theme-red">
@@ -52,7 +54,7 @@
 			id="longitude" /> <input type="hidden" name="latitude" id="latitude" />
 	</form>
 
-  
+
 	<script type="text/javascript">
 		window.onload = function() {
 
@@ -71,19 +73,20 @@
 				console.log(value);
 				//var v=${user.name};
 				//console.log(v);
-				var WAIT_TIME =500000;//parseInt(value);
+				var WAIT_TIME = 500000;//parseInt(value);
 				if (isNaN(WAIT_TIME)) {
 					WAIT_TIME = 2500;
 				}
 				//console.log(WAIT_TIME);
 				var firstTime = 0;
+				/*
 				setTimeout(
 						function wait() {
 							document.getElementById('longitude').value = position.coords.longitude;
 							document.getElementById('latitude').value = position.coords.latitude;
 							document.getElementById('location').submit();
 
-						}, WAIT_TIME);
+						}, WAIT_TIME);*/
 
 			}
 			geoLocation();
@@ -176,6 +179,32 @@
 				</div>
 
 			</form>
+
+			<button type="button" id="dbtn">button</button>
+
+			<script type="text/javascript">
+			$('#dbtn').click(function(){
+				
+				
+				$.ajax({
+					type:"GET",
+					url:"ajax"
+					
+					
+				}).done(function(){
+					
+				}).fail(function(){
+					console.log("ajax ERROR");
+				});
+				
+				console.log("Hello Wolrd");
+				
+				
+			});
+			
+			
+			</script>
+
 		</div>
 		<!-- giving post -->
 
@@ -215,6 +244,7 @@
 				</div>
 
 				<div class="body">${view.post.description}</div>
+
 
 				<div class="modal-footer ">
 
@@ -374,7 +404,7 @@
 
 
 	<!-- Jquery Core Js -->
-	<script src='<c:url value="res/plugins/jquery/jquery.min.js"/>'></script>
+
 	<!-- Bootstrap Core Js -->
 	<script src='<c:url value="res/plugins/bootstrap/js/bootstrap.js"/>'></script>
 	<!-- Select Plugin Js -->
